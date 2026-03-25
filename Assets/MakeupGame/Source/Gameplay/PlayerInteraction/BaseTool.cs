@@ -1,41 +1,55 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace MakeupGame.Gameplay.PlayerInteraction
 {
-    [RequireComponent(typeof(Collider2D))]
-    public abstract class BaseTool : MonoBehaviour
+    public abstract class BaseTool : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
     {
-        private Camera _mainCamera;
+        private RectTransform _rectTransform;
+        private RectTransform _canvasRectTransform;
         private Vector3 _offset;
-        private float _distanceFromCamera;
 
-        private void Start()
+        private void Awake()
         {
-            _mainCamera = Camera.main;
-            Debug.Log("Started");
+            _rectTransform = GetComponent<RectTransform>();
+
+            Canvas canvas = GetComponentInParent<Canvas>();
+            if (canvas != null)
+            {
+                _canvasRectTransform = canvas.GetComponent<RectTransform>();
+            }
         }
 
-        private void OnMouseDown()
+        public void OnBeginDrag(PointerEventData eventData)
         {
-            Debug.Log("YOY");
-            _distanceFromCamera = _mainCamera.WorldToScreenPoint(transform.position).z;
+            if (_canvasRectTransform == null) return;
 
-            Vector3 mouseWorldPosition = GetMouseWorldPosition();
-            _offset = transform.position - mouseWorldPosition;
+            Vector2 mouseLocalPos = GetMouseLocalPosition(eventData);
+
+            _offset = _rectTransform.anchoredPosition - mouseLocalPos;
         }
 
-        private void OnMouseDrag()
+        public void OnDrag(PointerEventData eventData)
         {
-            Vector3 mouseWorldPosition = GetMouseWorldPosition();
+            if (_canvasRectTransform == null) return;
 
-            transform.position = mouseWorldPosition + _offset;
+            Vector3 mouseLocalPos = GetMouseLocalPosition(eventData);
+
+            _rectTransform.anchoredPosition = mouseLocalPos + _offset;
         }
 
-        private Vector3 GetMouseWorldPosition()
+        private Vector3 GetMouseLocalPosition(PointerEventData eventData)
         {
-            Vector3 mousePoint = Input.mousePosition;
-            mousePoint.z = _distanceFromCamera;
-            return _mainCamera.ScreenToWorldPoint(mousePoint);
+            Vector2 localPoint;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                _canvasRectTransform,
+                eventData.position,
+                eventData.pressEventCamera,
+                out localPoint
+            );
+            return localPoint;
         }
+
+        public abstract void OnEndDrag(PointerEventData eventData);
     }
 }
