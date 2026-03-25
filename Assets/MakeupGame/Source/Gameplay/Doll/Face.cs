@@ -16,8 +16,11 @@ namespace MakeupGame.Gameplay.Doll
         public void ApplyCream()
         {
             Color color = _acne.color;
-            color.a = 0;
-            _acne.DOColor(color, 0.8f);
+            if (color.a > 0)
+            {
+                color.a = 0;
+                _acne.DOColor(color, 0.8f);
+            }
         }
 
         public void ApplyPomade(PomadeColor color)
