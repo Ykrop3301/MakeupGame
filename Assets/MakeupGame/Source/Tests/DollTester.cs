@@ -8,6 +8,7 @@ namespace MakeupGame.Tests
         [SerializeField] private Face _dollFace;
         [SerializeField] private PomadeColor _pomadeColor;
         [SerializeField] private ShadowsColor _eyeShadowsColor;
+        [SerializeField] private BlushColor _blushColor;
         private IDollFace _face;
 
         private void Awake()
@@ -19,7 +20,7 @@ namespace MakeupGame.Tests
             => _face.ApplyEyeShadows(_eyeShadowsColor);
 
         public void ApplyBlush()
-            => _face.ApplyBlush(BlushColor.Red);
+            => _face.ApplyBlush(_blushColor);
 
         public void ApplyCream()
             => _face.ApplyCream();
@@ -28,6 +29,6 @@ namespace MakeupGame.Tests
             => _face.ApplyPomade(_pomadeColor);
 
         public void ClearMakeUp()
-            => _face.ClearMakeUp();
+            => _face.ClearMakeup();
     }
 }

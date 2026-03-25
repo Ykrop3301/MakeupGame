@@ -17,5 +17,10 @@ namespace MakeupGame.Gameplay.Doll
                 _leftShadow.sprite = _rightShadow.sprite = sprite;
             }
         }
+
+        public void Reset()
+        {
+            _leftShadow.sprite = _rightShadow.sprite = null;
+        }
     }
 }

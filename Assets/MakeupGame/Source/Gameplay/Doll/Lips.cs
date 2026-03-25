@@ -16,5 +16,10 @@ namespace MakeupGame.Gameplay.Doll
                 _spriteRenderer.sprite = sprite;
             }
         }
+
+        public void Reset()
+        {
+            _spriteRenderer.sprite = null;
+        }
     }
 }

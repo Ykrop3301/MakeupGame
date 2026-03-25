@@ -6,6 +6,6 @@
         void ApplyPomade(PomadeColor color);
         void ApplyEyeShadows(ShadowsColor color);
         void ApplyCream();
-        void ClearMakeUp();
+        void ClearMakeup();
     }
 }

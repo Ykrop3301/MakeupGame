@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace MakeupGame.Gameplay.Configs
 {
-    [CreateAssetMenu]
+    [CreateAssetMenu(menuName = "Config/Gameplay/LipsConfig")]
     public class LipsColorConfig : ScriptableObject
     {
         [field: SerializeField] public List<LipsColorData> LipsColorDatas;

@@ -827,6 +827,7 @@ MonoBehaviour:
   _acne: {fileID: 945886154}
   _lips: {fileID: 2010233228}
   _shadows: {fileID: 83037499}
+  _blush: {fileID: 1588128100}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1045,7 +1046,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 3832856891997755353, guid: c3cb8d25215585a419d22e5d6c25ff01, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1053,7 +1054,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1 &553453011
 GameObject:
@@ -1357,7 +1358,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 3832856891997755353, guid: c3cb8d25215585a419d22e5d6c25ff01, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1365,7 +1366,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1 &945886151
 GameObject:
@@ -2060,6 +2061,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1588128098}
   - component: {fileID: 1588128099}
+  - component: {fileID: 1588128100}
   m_Layer: 0
   m_Name: BlushPlace
   m_TagString: Untagged
@@ -2131,7 +2133,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 2735780376057595307, guid: 164ec9f26b61af94ba16b766da4c8465, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2139,8 +2141,22 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1588128100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588128097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cff5aca60b2fa954db964659e8f4689c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MakeupGame.Gameplay.Doll.Blush
+  _spriteRenderer: {fileID: 1588128099}
+  _colorConfig: {fileID: 11400000, guid: 867fd8c6e15622a43897dfa032b432fc, type: 2}
 --- !u!1 &1808783536
 GameObject:
   m_ObjectHideFlags: 0
@@ -2291,6 +2307,7 @@ MonoBehaviour:
   _dollFace: {fileID: 499828112}
   _pomadeColor: 0
   _eyeShadowsColor: 0
+  _blushColor: 0
 --- !u!114 &1827230100
 MonoBehaviour:
   m_ObjectHideFlags: 0

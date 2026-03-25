@@ -12,9 +12,15 @@
 
     public enum BlushColor
     {
-        Red,
-        Green,
-        Blue
+        Pink,
+        DarkPink,
+        Biege,
+        Orange,
+        PinkBiege,
+        DullBiege,
+        Lilac,
+        DarkOrange,
+        DullYellow
     }
 
     public enum ShadowsColor

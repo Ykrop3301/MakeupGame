@@ -17,5 +17,12 @@ namespace MakeupGame.Gameplay.Doll
                 _acne.DOColor(color, _removeDuration);
             }
         }
+
+        public void Reset()
+        {
+            Color color = _acne.color;
+            color.a = 1;
+            _acne.color = color;
+        }
     }
 }

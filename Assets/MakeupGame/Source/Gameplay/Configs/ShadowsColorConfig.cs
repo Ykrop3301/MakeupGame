@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace MakeupGame.Gameplay.Configs
 {
-    [CreateAssetMenu]
+    [CreateAssetMenu(menuName = "Config/Gameplay/ShadowsConfig")]
     public class ShadowsColorConfig : ScriptableObject
     {
         [field: SerializeField] public List<ShadowsColorData> ShadowsColorDatas;

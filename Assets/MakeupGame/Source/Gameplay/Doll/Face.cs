@@ -7,15 +7,16 @@ namespace MakeupGame.Gameplay.Doll
         [SerializeField] private Acne _acne;
         [SerializeField] private Lips _lips;
         [SerializeField] private EyeShadows _shadows;
+        [SerializeField] private Blush _blush;
 
         public void ApplyBlush(BlushColor color)
         {
-            Debug.Log($"Color {color} applied");
+            _blush.SetColor(color);
         }
 
         public void ApplyCream()
         {
-            _acne.Remove();   
+            _acne.Remove();
         }
 
         public void ApplyEyeShadows(ShadowsColor color)
@@ -28,9 +29,12 @@ namespace MakeupGame.Gameplay.Doll
             _lips.SetColor(color);
         }
 
-        public void ClearMakeUp()
+        public void ClearMakeup()
         {
-            Debug.Log($"Makeup cleared");
+            _acne.Reset();
+            _lips.Reset();
+            _blush.Reset();
+            _shadows.Reset();
         }
     }
 }
