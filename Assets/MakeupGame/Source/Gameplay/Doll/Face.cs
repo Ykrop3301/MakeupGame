@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 
 namespace MakeupGame.Gameplay.Doll
 {
@@ -13,7 +14,9 @@ namespace MakeupGame.Gameplay.Doll
 
         public void ApplyCream()
         {
-            Debug.Log($"Cream applied");
+            Color color = _acne.color;
+            color.a = 0;
+            _acne.DOColor(color, 0.8f);
         }
 
         public void ApplyPomade(PomadeColor color)
