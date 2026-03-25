@@ -6,6 +6,7 @@ namespace MakeupGame.Tests
     public class DollTester : MonoBehaviour
     {
         [SerializeField] private Face _dollFace;
+        [SerializeField] private PomadeColor _pomadeColor;
         private IDollFace _face;
 
         private void Awake()
@@ -20,7 +21,7 @@ namespace MakeupGame.Tests
             => _face.ApplyCream();
 
         public void ApplyPomade()
-            => _face.ApplyPomade(PomadeColor.Red);
+            => _face.ApplyPomade(_pomadeColor);
 
         public void ClearMakeUp()
             => _face.ClearMakeUp();

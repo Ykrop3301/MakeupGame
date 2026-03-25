@@ -3,8 +3,11 @@
     public enum PomadeColor
     {
         Red,
-        Green,
-        Blue
+        Pink,
+        Purple,
+        DarkPink,
+        LightPink,
+        Burgundy
     }
 
     public enum BlushColor

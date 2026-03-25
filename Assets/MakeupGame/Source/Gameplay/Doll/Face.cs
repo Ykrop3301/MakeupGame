@@ -6,6 +6,7 @@ namespace MakeupGame.Gameplay.Doll
     public class Face : MonoBehaviour, IDollFace
     {
         [SerializeField] private SpriteRenderer _acne;
+        [SerializeField] private Lips _lips;
 
         public void ApplyBlush(BlushColor color)
         {
@@ -21,7 +22,7 @@ namespace MakeupGame.Gameplay.Doll
 
         public void ApplyPomade(PomadeColor color)
         {
-            Debug.Log($"Color {color} applied");
+            _lips.SetColor(color);
         }
 
         public void ClearMakeUp()
