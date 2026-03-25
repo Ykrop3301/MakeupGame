@@ -1,12 +1,12 @@
-﻿using DG.Tweening;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace MakeupGame.Gameplay.Doll
 {
     public class Face : MonoBehaviour, IDollFace
     {
-        [SerializeField] private SpriteRenderer _acne;
+        [SerializeField] private Acne _acne;
         [SerializeField] private Lips _lips;
+        [SerializeField] private EyeShadows _shadows;
 
         public void ApplyBlush(BlushColor color)
         {
@@ -15,12 +15,12 @@ namespace MakeupGame.Gameplay.Doll
 
         public void ApplyCream()
         {
-            Color color = _acne.color;
-            if (color.a > 0)
-            {
-                color.a = 0;
-                _acne.DOColor(color, 0.8f);
-            }
+            _acne.Remove();   
+        }
+
+        public void ApplyEyeShadows(ShadowsColor color)
+        {
+            _shadows.SetColor(color);
         }
 
         public void ApplyPomade(PomadeColor color)

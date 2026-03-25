@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11b3ac97501fe748bf31b40460ba004, type: 3}
+  m_Name: Shadows Color Config
+  m_EditorClassIdentifier: Assembly-CSharp::MakeupGame.Gameplay.Configs.ShadowsColorConfig
+  ShadowsColorDatas:
+  - <ShadowsColor>k__BackingField: 0
+    <Sprite>k__BackingField: {fileID: -9083023727679918253, guid: e28dfd52f995ef544b08179d9b92f7e9, type: 3}
+  - <ShadowsColor>k__BackingField: 1
+    <Sprite>k__BackingField: {fileID: 3832856891997755353, guid: c3cb8d25215585a419d22e5d6c25ff01, type: 3}
+  - <ShadowsColor>k__BackingField: 2
+    <Sprite>k__BackingField: {fileID: -2807799779774319300, guid: a94741e4d80d9f64d9474c40ce231e11, type: 3}
+  - <ShadowsColor>k__BackingField: 3
+    <Sprite>k__BackingField: {fileID: -283848679355503933, guid: 1b154d6cf170c494c9e2ce5970b0bfb1, type: 3}
+  - <ShadowsColor>k__BackingField: 4
+    <Sprite>k__BackingField: {fileID: 491726396686365125, guid: be947046a12c93046b844355dfa24631, type: 3}
+  - <ShadowsColor>k__BackingField: 5
+    <Sprite>k__BackingField: {fileID: 8879923056484331699, guid: 80ee971b7874fad4a8db8f56acd6dff3, type: 3}
+  - <ShadowsColor>k__BackingField: 6
+    <Sprite>k__BackingField: {fileID: 7146465050932404380, guid: f8696274ec0a3e943980850ca8730531, type: 3}
+  - <ShadowsColor>k__BackingField: 7
+    <Sprite>k__BackingField: {fileID: 1690259320168040865, guid: f565ad4d3985ada4fb6ea6a01673c89e, type: 3}
+  - <ShadowsColor>k__BackingField: 8
+    <Sprite>k__BackingField: {fileID: 8290768584984152016, guid: d55740380a5529547b5249d97e3f6bed, type: 3}
