@@ -1,11 +1,12 @@
 ﻿using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MakeupGame.Gameplay.Doll
 {
     public class Acne : MonoBehaviour
     {
-        [SerializeField] private SpriteRenderer _acne;
+        [SerializeField] private Image _acne;
         [SerializeField] private float _removeDuration;
 
         public void Remove()

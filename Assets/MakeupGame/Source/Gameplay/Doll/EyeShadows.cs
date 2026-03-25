@@ -1,12 +1,13 @@
 ﻿using MakeupGame.Gameplay.Configs;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MakeupGame.Gameplay.Doll
 {
     public class EyeShadows : MonoBehaviour 
     {
-        [SerializeField] private SpriteRenderer _leftShadow;
-        [SerializeField] private SpriteRenderer _rightShadow;
+        [SerializeField] private Image _leftShadow;
+        [SerializeField] private Image _rightShadow;
         [SerializeField] private ShadowsColorConfig _colorConfig;
 
         public void SetColor(ShadowsColor color)
@@ -15,12 +16,17 @@ namespace MakeupGame.Gameplay.Doll
             if (sprite != null)
             {
                 _leftShadow.sprite = _rightShadow.sprite = sprite;
+                Color alpha = _leftShadow.color;
+                alpha.a = 1f;
+                _leftShadow.color = _rightShadow.color = alpha;
             }
         }
 
         public void Reset()
         {
-            _leftShadow.sprite = _rightShadow.sprite = null;
+            Color alpha = _leftShadow.color;
+            alpha.a = 0f;
+            _leftShadow.color = _rightShadow.color = alpha;
         }
     }
 }
