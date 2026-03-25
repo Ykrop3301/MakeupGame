@@ -4,7 +4,7 @@ namespace MakeupGame.Gameplay.Doll
 {
     public class Face : MonoBehaviour, IDollFace
     {
-
+        [SerializeField] private SpriteRenderer _acne;
 
         public void ApplyBlush(BlushColor color)
         {
