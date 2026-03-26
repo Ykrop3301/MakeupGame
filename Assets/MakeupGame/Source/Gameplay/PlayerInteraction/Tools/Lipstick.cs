@@ -5,14 +5,14 @@ using UnityEngine.EventSystems;
 
 namespace MakeupGame.Gameplay.PlayerInteraction.Tools
 {
-    public class Lipstick : BaseTool
+    public class Lipstick : BaseTool, IPointerClickHandler
     {
-        private static readonly float TiltAngle = 20f;
-        private static readonly float TiltDuration = 0.35f;
+        private static readonly float MoveDuration = 0.5f;
 
         [SerializeField] private PomadeColor _color;
+        [SerializeField] private Hand _hand;
 
-        public override void OnEndDrag(PointerEventData eventData)
+        protected override void HandleEndDrag(PointerEventData eventData)
         {
             if (!TryGetFace(eventData, out IDollFace face))
             {
@@ -20,19 +20,34 @@ namespace MakeupGame.Gameplay.PlayerInteraction.Tools
                 return;
             }
 
-            PlayApplyAnimation(face);
+            FlyToAnchorAndPlay(() => PlayApplyAnimation(face));
         }
 
         private void PlayApplyAnimation(IDollFace face)
         {
-            float startZ = transform.eulerAngles.z;
+            float startX = transform.position.x;
 
             DOTween.Sequence()
-                .Append(transform.DORotate(new Vector3(0f, 0f, startZ - TiltAngle), TiltDuration)
+                .Append(transform.DOMoveX(startX + 50, MoveDuration)
                     .SetEase(Ease.InOutSine))
-                .Append(transform.DORotate(new Vector3(0f, 0f, startZ), TiltDuration * 0.6f)
-                    .SetEase(Ease.OutBack))
-                .AppendCallback(() => { face.ApplyPomade(_color); ReturnToOrigin(); });
+                .Append(transform.DOMoveX(startX - 50, MoveDuration)
+                    .SetEase(Ease.InOutSine))
+                .Append(transform.DOMoveX(startX, MoveDuration * 0.5f)
+                    .SetEase(Ease.OutSine))
+                .AppendCallback(() => face.ApplyPomade(_color))
+                .AppendCallback(ReturnToOrigin);
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            Vector2 destination = transform.position;
+            destination.y += 100;
+
+            _hand.TryTakeTool(this, () =>
+            {
+                _hand.StartHoldingTool();
+                transform.GetComponent<RectTransform>().DOMove(destination, MoveDuration).SetEase(Ease.InOutSine);
+            });
         }
     }
 }

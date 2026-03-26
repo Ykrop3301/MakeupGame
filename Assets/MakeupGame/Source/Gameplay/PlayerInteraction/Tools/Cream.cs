@@ -5,12 +5,26 @@ using UnityEngine.EventSystems;
 
 namespace MakeupGame.Gameplay.PlayerInteraction.Tools
 {
-    public class Cream : BaseTool
+    public class Cream : BaseTool, IPointerClickHandler
     {
-        private static readonly float TiltAngle = 25f;
-        private static readonly float TiltDuration = 0.45f;
+        [SerializeField] private Hand _hand;
+        [SerializeField] private Face _face;
 
-        public override void OnEndDrag(PointerEventData eventData)
+        private static readonly float TiltDuration = 0.45f;
+        private static readonly float MoveDuration = 0.5f;
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            Vector2 destination = ((Vector2)_face.GetComponent<RectTransform>().position + (Vector2)transform.GetComponent<RectTransform>().position)/2;
+
+            _hand.TryTakeTool(this, () =>
+            {
+                _hand.StartHoldingTool();
+                transform.GetComponent<RectTransform>().DOMove(destination, MoveDuration);
+            });
+        }
+
+        protected override void HandleEndDrag(PointerEventData eventData)
         {
             if (!TryGetFace(eventData, out IDollFace face))
             {
@@ -18,24 +32,20 @@ namespace MakeupGame.Gameplay.PlayerInteraction.Tools
                 return;
             }
 
-            PlayApplyAnimation(face);
+            FlyToAnchorAndPlay(() => PlayApplyAnimation(face));
         }
 
         private void PlayApplyAnimation(IDollFace face)
         {
-            float startZ = transform.eulerAngles.z;
+            float startY = transform.position.y;
 
-            Sequence sequence = DOTween.Sequence();
-
-            sequence.Append(
-                transform.DORotate(new Vector3(0f, 0f, startZ - TiltAngle), TiltDuration)
-                    .SetEase(Ease.InOutSine)
-            );
-            sequence.Append(
-                transform.DORotate(new Vector3(0f, 0f, startZ), TiltDuration * 0.6f)
-                    .SetEase(Ease.OutBack)
-            );
-            sequence.AppendCallback(() => { face.ApplyCream(); ReturnToOrigin(); });
+            DOTween.Sequence()
+                .Append(transform.DOMoveY(startY - 100, TiltDuration)
+                    .SetEase(Ease.InOutSine))
+                .Append(transform.DOMoveY(startY, TiltDuration * 0.6f)
+                    .SetEase(Ease.OutBack))
+                .AppendCallback(() => face.ApplyCream())
+                .AppendCallback(ReturnToOrigin);
         }
     }
 }
