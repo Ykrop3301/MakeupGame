@@ -1,20 +1,12 @@
-﻿using MakeupGame.Gameplay.Doll;
+using MakeupGame.Gameplay.Doll;
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace MakeupGame.Gameplay.Configs
 {
     [CreateAssetMenu(menuName = "Config/Gameplay/LipsConfig")]
-    public class LipsColorConfig : ScriptableObject
-    {
-        [field: SerializeField] public List<LipsColorData> LipsColorDatas;
-    }
+    public class LipsColorConfig : ColorConfig<PomadeColor, LipsColorData> { }
 
     [Serializable]
-    public class LipsColorData
-    {
-        [field: SerializeField] public PomadeColor PomadeColor { get; private set; }
-        [field: SerializeField] public Sprite Sprite { get; private set; }
-    }
+    public class LipsColorData : ColorData<PomadeColor> { }
 }

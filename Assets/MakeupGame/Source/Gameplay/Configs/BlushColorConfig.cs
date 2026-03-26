@@ -1,20 +1,12 @@
-﻿using MakeupGame.Gameplay.Doll;
+using MakeupGame.Gameplay.Doll;
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace MakeupGame.Gameplay.Configs
 {
-    [CreateAssetMenu(menuName ="Config/Gameplay/BlushConfig")]
-    public class BlushColorConfig : ScriptableObject
-    {
-        [field: SerializeField] public List<BlushColorData> BlushColorDatas;
-    }
+    [CreateAssetMenu(menuName = "Config/Gameplay/BlushConfig")]
+    public class BlushColorConfig : ColorConfig<BlushColor, BlushColorData> { }
 
     [Serializable]
-    public class BlushColorData
-    {
-        [field: SerializeField] public BlushColor BlushColor { get; private set; }
-        [field: SerializeField] public Sprite Sprite { get; private set; }
-    }
+    public class BlushColorData : ColorData<BlushColor> { }
 }

@@ -1,4 +1,4 @@
-﻿using MakeupGame.Gameplay.Configs;
+using MakeupGame.Gameplay.Configs;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,14 +11,11 @@ namespace MakeupGame.Gameplay.Doll
 
         public void SetColor(BlushColor color)
         {
-            Sprite sprite = _colorConfig.BlushColorDatas.Find(x => x.BlushColor == color).Sprite;
-            if (sprite != null)
-            {
-                _image.sprite = sprite;
-                Color alpha = _image.color;
-                alpha.a = 1f;
-                _image.color = alpha;
-            }
+            if (!_colorConfig.TryGetSprite(color, out Sprite sprite)) return;
+            _image.sprite = sprite;
+            Color alpha = _image.color;
+            alpha.a = 1f;
+            _image.color = alpha;
         }
 
         public void Reset()

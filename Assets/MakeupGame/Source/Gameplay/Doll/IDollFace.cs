@@ -1,6 +1,6 @@
-﻿namespace MakeupGame.Gameplay.Doll
+namespace MakeupGame.Gameplay.Doll
 {
-    interface IDollFace
+    public interface IDollFace
     {
         void ApplyBlush(BlushColor color);
         void ApplyPomade(PomadeColor color);

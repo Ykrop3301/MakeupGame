@@ -12,22 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1960700b2e6f54b40bacd94229b03f55, type: 3}
   m_Name: Blush Color Config
   m_EditorClassIdentifier: Assembly-CSharp::MakeupGame.Gameplay.Configs.BlushColorConfig
-  BlushColorDatas:
-  - <BlushColor>k__BackingField: 0
+  <Entries>k__BackingField:
+  - <Color>k__BackingField: 0
     <Sprite>k__BackingField: {fileID: 2735780376057595307, guid: 164ec9f26b61af94ba16b766da4c8465, type: 3}
-  - <BlushColor>k__BackingField: 1
+  - <Color>k__BackingField: 1
     <Sprite>k__BackingField: {fileID: -1322443347611866250, guid: 60291fb109995174a8ad05bed3b6aa11, type: 3}
-  - <BlushColor>k__BackingField: 2
+  - <Color>k__BackingField: 2
     <Sprite>k__BackingField: {fileID: -5595769614546131945, guid: 719e6e51d96268645b5e1651b9aac479, type: 3}
-  - <BlushColor>k__BackingField: 3
+  - <Color>k__BackingField: 3
     <Sprite>k__BackingField: {fileID: 7313455164188800378, guid: 2bb8a8a36cdeb484598431633e9b3c25, type: 3}
-  - <BlushColor>k__BackingField: 4
+  - <Color>k__BackingField: 4
     <Sprite>k__BackingField: {fileID: -5019120186524738833, guid: 2ca143d190d246844abd39364fcf9aed, type: 3}
-  - <BlushColor>k__BackingField: 5
+  - <Color>k__BackingField: 5
     <Sprite>k__BackingField: {fileID: 5546873559369261594, guid: db12c4d8559e9af4dbade124d579701b, type: 3}
-  - <BlushColor>k__BackingField: 6
+  - <Color>k__BackingField: 6
     <Sprite>k__BackingField: {fileID: -1254107489049226150, guid: 87b5eab434c2f83428810a2b60c5f780, type: 3}
-  - <BlushColor>k__BackingField: 7
+  - <Color>k__BackingField: 7
     <Sprite>k__BackingField: {fileID: -8124131503724612360, guid: 7e9c8e37d61f9f4468641743f900ea15, type: 3}
-  - <BlushColor>k__BackingField: 8
+  - <Color>k__BackingField: 8
     <Sprite>k__BackingField: {fileID: -4166999968946950401, guid: 52a3442401c00e348945e08c6775f084, type: 3}

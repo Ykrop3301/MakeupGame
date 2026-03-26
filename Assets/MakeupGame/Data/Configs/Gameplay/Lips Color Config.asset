@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54d867af5780d704b80ce347cacb2585, type: 3}
   m_Name: Lips Color Config
   m_EditorClassIdentifier: Assembly-CSharp::MakeupGame.Gameplay.Configs.LipsColorConfig
-  LipsColorDatas:
-  - <PomadeColor>k__BackingField: 0
+  <Entries>k__BackingField:
+  - <Color>k__BackingField: 0
     <Sprite>k__BackingField: {fileID: -7973376512685140356, guid: 90aed6dea688f4e4bb69b68b2822566b, type: 3}
-  - <PomadeColor>k__BackingField: 1
+  - <Color>k__BackingField: 1
     <Sprite>k__BackingField: {fileID: -1451781210149412861, guid: 465a8534023634d448d4981004505d32, type: 3}
-  - <PomadeColor>k__BackingField: 2
+  - <Color>k__BackingField: 2
     <Sprite>k__BackingField: {fileID: 1764545999717624069, guid: 86a9b85dece7a3b4db9029604b856b5d, type: 3}
-  - <PomadeColor>k__BackingField: 3
+  - <Color>k__BackingField: 3
     <Sprite>k__BackingField: {fileID: 3291508729261550910, guid: d3aabd416be47fb4d8cffdbc60e4eb0b, type: 3}
-  - <PomadeColor>k__BackingField: 5
+  - <Color>k__BackingField: 5
     <Sprite>k__BackingField: {fileID: 8171380537145016961, guid: 80993409a4ad98b449e3fa43bc725446, type: 3}
-  - <PomadeColor>k__BackingField: 4
+  - <Color>k__BackingField: 4
     <Sprite>k__BackingField: {fileID: 8831518379824529241, guid: 7fea19ced66e9614b99a99941c719a09, type: 3}

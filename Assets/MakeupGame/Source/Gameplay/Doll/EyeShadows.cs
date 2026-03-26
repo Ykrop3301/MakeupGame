@@ -1,4 +1,4 @@
-﻿using MakeupGame.Gameplay.Configs;
+using MakeupGame.Gameplay.Configs;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,14 +12,12 @@ namespace MakeupGame.Gameplay.Doll
 
         public void SetColor(ShadowsColor color)
         {
-            Sprite sprite = _colorConfig.ShadowsColorDatas.Find(x => x.ShadowsColor == color).Sprite;
-            if (sprite != null)
-            {
-                _leftShadow.sprite = _rightShadow.sprite = sprite;
-                Color alpha = _leftShadow.color;
-                alpha.a = 1f;
-                _leftShadow.color = _rightShadow.color = alpha;
-            }
+            if (!_colorConfig.TryGetSprite(color, out Sprite sprite)) return;
+
+            _leftShadow.sprite = _rightShadow.sprite = sprite;
+            Color alpha = _leftShadow.color;
+            alpha.a = 1f;
+            _leftShadow.color = _rightShadow.color = alpha;
         }
 
         public void Reset()
